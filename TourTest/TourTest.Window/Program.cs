@@ -20,14 +20,7 @@ namespace TourTest.Window
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form1 = new Form1();
-            using (var db = new TourContext())
-            {
-                var tour = db.Tours.FirstOrDefault();
-
-                form1.pictureBox1.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
-            }
-            Application.Run(form1);
+            Application.Run(new Form1());
         }
     }
 }

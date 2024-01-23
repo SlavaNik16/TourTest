@@ -17,6 +17,14 @@ namespace TourTest.Window
         public Form1()
         {
             InitializeComponent();
+            using (var db = new TourContext())
+            {
+                var tour = db.Tours.FirstOrDefault();
+                if (tour != null)
+                {
+                    pictureBox1.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,6 +34,7 @@ namespace TourTest.Window
                 using (var db = new TourContext())
                 {
                     var tour = db.Tours.FirstOrDefault();
+                    if (tour == null) return;
                     var image = System.IO.File.ReadAllBytes(openFileDialog1.FileName);
                     tour.ImagePreview = image;
                     db.SaveChanges();

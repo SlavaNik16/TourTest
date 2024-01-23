@@ -13,6 +13,8 @@ namespace TourTest.Context.Models
         public string Code { get; set; }
         public string Name { get; set; }
 
-        //public ICollection<Hotel> Hotel { get; set; }
+        public ICollection<Hotel> Hotel { get; set; }
+
+        public ICollection<Tour> Tour { get; set; }
     }
 }
