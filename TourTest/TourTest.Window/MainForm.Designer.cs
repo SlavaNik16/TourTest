@@ -40,10 +40,10 @@
             // flowLayoutPanel
             // 
             this.flowLayoutPanel.AutoScroll = true;
-            this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 129);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(1300, 877);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(1300, 748);
             this.flowLayoutPanel.TabIndex = 2;
             // 
             // Form

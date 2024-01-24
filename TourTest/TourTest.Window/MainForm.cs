@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -9,34 +10,42 @@ namespace TourTest.Window
 {
     public partial class Form : System.Windows.Forms.Form
     {
+        public List<TourInfo> toursInfo;
         public Form()
         {
             InitializeComponent();
-           
+            toursInfo = new List<TourInfo>();
+            InitTours();
+        }
+
+        private void InitTours()
+        {
+            toursInfo.Clear();
             using (var db = new TourContext())
             {
                 var tours = db.Tours.ToList();
-                foreach(var tour in tours)
+                foreach (var tour in tours)
                 {
+                    var index = toursInfo.Count();
                     var tourInfo = new TourInfo();
                     tourInfo.Tag = tour.Id;
                     tourInfo.labelName.Text = tour.Name;
                     tourInfo.labelPrice.Text = $"{tour.Price:C2}";
                     tourInfo.labelIsActual.Text = tour.IsActual ? "Актуален" : "Не актуален";
-                    tourInfo.labelIsActual.ForeColor = tour.IsActual ? Color.Green: Color.Red;
+                    tourInfo.labelIsActual.ForeColor = tour.IsActual ? Color.Green : Color.Red;
                     tourInfo.labelTicketCount.Text = tour.TicketCount.ToString();
                     if (tour.ImagePreview != null)
                     {
                         tourInfo.pictureBox1.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
                     }
 
-                    tourInfo.butEdit.Tag = tourInfo; 
-                    tourInfo.butEditPhoto.Tag = tourInfo;
+                    tourInfo.butEdit.Tag = index;
+                    tourInfo.butEditPhoto.Tag = index;
                     tourInfo.butEdit.Click += ButEdit_Click;
                     tourInfo.butEditPhoto.Click += ButEditPhoto_Click;
                     tourInfo.Parent = flowLayoutPanel;
+                    toursInfo.Add(tourInfo);
                 }
-
             }
         }
 
@@ -46,11 +55,7 @@ namespace TourTest.Window
             {
                 return;
             }
-            if (!(but.Tag is TourInfo tourInfo))
-            {
-                return;
-            }
-            Console.WriteLine($"Это была нажата кнопка с id = {tourInfo.Tag}");
+            Console.WriteLine($"Это была нажата кнопка с id = ");
             
         }
 
