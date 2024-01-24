@@ -9,7 +9,6 @@ namespace TourTest.Window
 {
     public partial class Form : System.Windows.Forms.Form
     {
-        public event EventHandler ButtonClick = delegate { };
         public Form()
         {
             InitializeComponent();
@@ -79,7 +78,6 @@ namespace TourTest.Window
             }
             
         }
-
     }
 
 }
