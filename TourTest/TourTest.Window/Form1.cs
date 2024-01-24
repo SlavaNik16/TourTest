@@ -7,15 +7,15 @@ using TourTest.Context.DB;
 
 namespace TourTest.Window
 {
-    public partial class Form1 : Form
+    public partial class Form : System.Windows.Forms.Form
     {
-        public Form1()
+        public Form()
         {
             InitializeComponent();
             using (var db = new TourContext())
             {
                 var tour = db.Tours.FirstOrDefault();
-                if (tour != null)
+                if (tour != null && tour?.ImagePreview != null)
                 {
                     pictureBox1.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
                 }
