@@ -1,8 +1,7 @@
 ﻿namespace TourTest.Context.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddGeneratedNone : DbMigration
     {
         public override void Up()
@@ -13,7 +12,7 @@
             AddPrimaryKey("dbo.Types", "Id");
             AddForeignKey("dbo.TypeTours", "Type_Id", "dbo.Types", "Id", cascadeDelete: true);
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.TypeTours", "Type_Id", "dbo.Types");

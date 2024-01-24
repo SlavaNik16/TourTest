@@ -1,8 +1,7 @@
 ﻿namespace TourTest.Context.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class AddCountryTour : DbMigration
     {
         public override void Up()
@@ -11,7 +10,7 @@
             CreateIndex("dbo.Tours", "CountryCode");
             AddForeignKey("dbo.Tours", "CountryCode", "dbo.Countries", "Code");
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.Tours", "CountryCode", "dbo.Countries");
