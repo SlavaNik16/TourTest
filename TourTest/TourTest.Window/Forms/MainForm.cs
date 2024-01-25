@@ -11,6 +11,7 @@ namespace TourTest.Window
 {
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace TourTest.Window
                 var tours = db.Tours.ToList();
                 foreach (var tour in tours)
                 {
+                 
                     var tourInfo = new TourInfo(tour);
                     tourInfo.Parent = flowLayoutPanel;
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
@@ -49,7 +51,20 @@ namespace TourTest.Window
                 db.SaveChanges();
             }
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (var item in flowLayoutPanel.Controls)
+            {
+                if(item is TourInfo tourInfo)
+                {
+                    if(tourInfo.Tour.Id % 2 != 0)
+                    {
+                        tourInfo.Visible = !tourInfo.Visible;
+                    }
+                }
+            }
+        }
     }
 
 }
