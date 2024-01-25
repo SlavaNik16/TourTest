@@ -34,17 +34,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelTicketCount = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.butEditPhoto = new System.Windows.Forms.Button();
+            this.butEdit = new System.Windows.Forms.Button();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelPrice = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.butEdit = new System.Windows.Forms.Button();
-            this.butEditPhoto = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelName
@@ -128,20 +129,44 @@
             this.panel1.Size = new System.Drawing.Size(526, 511);
             this.panel1.TabIndex = 6;
             // 
-            // tableLayoutPanel1
+            // butEditPhoto
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.18182F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.81818F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(526, 275);
-            this.tableLayoutPanel1.TabIndex = 6;
+            this.butEditPhoto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.butEditPhoto.Location = new System.Drawing.Point(346, 443);
+            this.butEditPhoto.Name = "butEditPhoto";
+            this.butEditPhoto.Size = new System.Drawing.Size(170, 56);
+            this.butEditPhoto.TabIndex = 10;
+            this.butEditPhoto.Text = "Обзор";
+            this.butEditPhoto.UseVisualStyleBackColor = true;
+            this.butEditPhoto.Click += new System.EventHandler(this.butEditPhoto_Click);
+            // 
+            // butEdit
+            // 
+            this.butEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.butEdit.Location = new System.Drawing.Point(9, 443);
+            this.butEdit.Name = "butEdit";
+            this.butEdit.Size = new System.Drawing.Size(170, 56);
+            this.butEdit.TabIndex = 9;
+            this.butEdit.Text = "Изменить";
+            this.butEdit.UseVisualStyleBackColor = true;
+            this.butEdit.Click += new System.EventHandler(this.butEdit_Click);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel3.Controls.Add(this.labelIsActual, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelTicketCount, 2, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 341);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(526, 87);
+            this.tableLayoutPanel3.TabIndex = 8;
             // 
             // tableLayoutPanel2
             // 
@@ -170,42 +195,25 @@
             this.labelPrice.Text = "Цена";
             this.labelPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel3
+            // tableLayoutPanel1
             // 
-            this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel3.Controls.Add(this.labelIsActual, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.labelTicketCount, 2, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 341);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(526, 87);
-            this.tableLayoutPanel3.TabIndex = 8;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.18182F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.81818F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(526, 275);
+            this.tableLayoutPanel1.TabIndex = 6;
             // 
-            // butEdit
+            // openFileDialog1
             // 
-            this.butEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.butEdit.Location = new System.Drawing.Point(9, 443);
-            this.butEdit.Name = "butEdit";
-            this.butEdit.Size = new System.Drawing.Size(170, 56);
-            this.butEdit.TabIndex = 9;
-            this.butEdit.Text = "Изменить";
-            this.butEdit.UseVisualStyleBackColor = true;
-            // 
-            // butEditPhoto
-            // 
-            this.butEditPhoto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.butEditPhoto.Location = new System.Drawing.Point(346, 443);
-            this.butEditPhoto.Name = "butEditPhoto";
-            this.butEditPhoto.Size = new System.Drawing.Size(170, 56);
-            this.butEditPhoto.TabIndex = 10;
-            this.butEditPhoto.Text = "Обзор";
-            this.butEditPhoto.UseVisualStyleBackColor = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Image(*.jpg)|*.jpg";
             // 
             // TourInfo
             // 
@@ -216,28 +224,29 @@
             this.Size = new System.Drawing.Size(526, 511);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Label labelName;
-        public System.Windows.Forms.PictureBox pictureBox1;
-        public System.Windows.Forms.Label labelIsActual;
-        public System.Windows.Forms.Label labelTicketCount;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         public System.Windows.Forms.Label labelPrice;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        public System.Windows.Forms.Button butEditPhoto;
-        public System.Windows.Forms.Button butEdit;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelIsActual;
+        private System.Windows.Forms.Label labelTicketCount;
+        private System.Windows.Forms.Button butEditPhoto;
+        private System.Windows.Forms.Button butEdit;
     }
 }

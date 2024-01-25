@@ -1,83 +1,55 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using TourTest.Context.DB;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TourTest.Window
 {
-    public partial class MainForm : System.Windows.Forms.Form
+    public partial class MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
-           
+
             using (var db = new TourContext())
             {
                 var tours = db.Tours.ToList();
-                foreach(var tour in tours)
+                foreach (var tour in tours)
                 {
-                    var tourInfo = new TourInfo();
-                    tourInfo.Tag = tour.Id;
-                    tourInfo.labelName.Text = tour.Name;
-                    tourInfo.labelPrice.Text = $"{tour.Price:C2}";
-                    tourInfo.labelIsActual.Text = tour.IsActual ? "Актуален" : "Не актуален";
-                    tourInfo.labelIsActual.ForeColor = tour.IsActual ? Color.Green: Color.Red;
-                    tourInfo.labelTicketCount.Text = tour.TicketCount.ToString();
-                    if (tour.ImagePreview != null)
-                    {
-                        tourInfo.pictureBox1.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
-                    }
-
-                    tourInfo.butEdit.Tag = tourInfo; 
-                    tourInfo.butEditPhoto.Tag = tourInfo;
-                    tourInfo.butEdit.Click += ButEdit_Click;
-                    tourInfo.butEditPhoto.Click += ButEditPhoto_Click;
+                    var tourInfo = new TourInfo(tour);
                     tourInfo.Parent = flowLayoutPanel;
+                    tourInfo.ImageChanged += TourInfo_ImageChanged;
                 }
 
+                //}
+                //string path = Directory.GetCurrentDirectory();
+                //foreach (string fileName in Directory.GetFiles(Path.Combine(path, "materials")))
+                //{
+                //    var picture = new PictureBox();
+                //    var fileByte = File.ReadAllBytes(fileName);
+                //    picture.Image = System.Drawing.Image.FromStream(new MemoryStream(fileByte));
+                //    picture.Size = new Size(200,150);
+                //    picture.SizeMode = PictureBoxSizeMode.StretchImage;
+                //    picture.Parent = flowLayoutPanel;
+                //}
+
             }
         }
 
-        private void ButEdit_Click(object sender, EventArgs e)
+        private void TourInfo_ImageChanged(object sender, (Context.Models.Tour, byte[]) e)
         {
-            if(!(sender is Button but))
-            {
-                return;
-            }
-            if (!(but.Tag is TourInfo tourInfo))
-            {
-                return;
-            }
-            Console.WriteLine($"Это была нажата кнопка с id = {tourInfo.Tag}");
-            
-        }
-
-        private void ButEditPhoto_Click(object sender, EventArgs e)
-        {
-            if (!(sender is Button but))
-            {
-                return;
-            }
-            if (openFileDialog1.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
             using (var db = new TourContext())
-            {
-                if (!(but.Tag is TourInfo tourInfo))
-                {
-                    return;
-                }
-                var tour = db.Tours.FirstOrDefault(x => x.Id.ToString() == tourInfo.Tag.ToString());
-                var image = System.IO.File.ReadAllBytes(openFileDialog1.FileName);
-                tour.ImagePreview = image;
+            {    
+                db.Entry(e.Item1).State = EntityState.Modified;
+                e.Item1.ImagePreview = e.Item2;
                 db.SaveChanges();
-                tourInfo.pictureBox1.Image = Image.FromStream(new MemoryStream(image));
             }
-            
         }
+        
     }
 
 }

@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.SuspendLayout();
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Image(*.jpg)|*.jpg";
             // 
             // flowLayoutPanel
             // 
@@ -46,7 +40,7 @@
             this.flowLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.flowLayoutPanel.Size = new System.Drawing.Size(1300, 877);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(1950, 1316);
             this.flowLayoutPanel.TabIndex = 2;
             // 
             // printDialog1
@@ -67,7 +61,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel;
         private System.Windows.Forms.PrintDialog printDialog1;
     }
