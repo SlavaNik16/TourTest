@@ -33,7 +33,7 @@
             this.labelIsActual = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTicketCount = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelBack = new System.Windows.Forms.Panel();
             this.butEditPhoto = new System.Windows.Forms.Button();
             this.butEdit = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -42,7 +42,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelBack.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -116,18 +116,19 @@
             this.labelTicketCount.Text = "100";
             this.labelTicketCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel1
+            // panelBack
             // 
-            this.panel1.Controls.Add(this.butEditPhoto);
-            this.panel1.Controls.Add(this.butEdit);
-            this.panel1.Controls.Add(this.tableLayoutPanel3);
-            this.panel1.Controls.Add(this.tableLayoutPanel2);
-            this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(50, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(562, 593);
-            this.panel1.TabIndex = 6;
+            this.panelBack.BackColor = System.Drawing.Color.White;
+            this.panelBack.Controls.Add(this.butEditPhoto);
+            this.panelBack.Controls.Add(this.butEdit);
+            this.panelBack.Controls.Add(this.tableLayoutPanel3);
+            this.panelBack.Controls.Add(this.tableLayoutPanel2);
+            this.panelBack.Controls.Add(this.tableLayoutPanel1);
+            this.panelBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBack.Location = new System.Drawing.Point(50, 50);
+            this.panelBack.Name = "panelBack";
+            this.panelBack.Size = new System.Drawing.Size(562, 593);
+            this.panelBack.TabIndex = 6;
             // 
             // butEditPhoto
             // 
@@ -219,13 +220,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelBack);
             this.Name = "TourInfo";
             this.Padding = new System.Windows.Forms.Padding(50);
             this.Size = new System.Drawing.Size(662, 693);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.panelBack.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -238,7 +240,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         public System.Windows.Forms.Label labelPrice;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -250,5 +251,6 @@
         private System.Windows.Forms.Label labelTicketCount;
         private System.Windows.Forms.Button butEditPhoto;
         private System.Windows.Forms.Button butEdit;
+        public System.Windows.Forms.Panel panelBack;
     }
 }
