@@ -131,6 +131,9 @@ namespace TourTest.Window
             {
                 using (var db = new TourContext())
                 {
+                    //Тут надо доработать
+                    tourInfoForm.Tour.Types.Clear();
+                    tourInfoForm.Tour.Types = tourInfoForm.GetTypesChecked();
                     db.Tours.Add(tourInfoForm.Tour);
                     db.SaveChanges();
                 }

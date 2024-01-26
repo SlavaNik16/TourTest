@@ -40,6 +40,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.butAdd = new System.Windows.Forms.Button();
             this.butDelete = new System.Windows.Forms.Button();
+            this.flowLayoutPanelTypes = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTicket)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,7 +151,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(365, 318);
+            this.button1.Location = new System.Drawing.Point(375, 587);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 45);
             this.button1.TabIndex = 9;
@@ -160,7 +161,8 @@
             // butAdd
             // 
             this.butAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.butAdd.Location = new System.Drawing.Point(29, 318);
+            this.butAdd.Enabled = false;
+            this.butAdd.Location = new System.Drawing.Point(26, 587);
             this.butAdd.Name = "butAdd";
             this.butAdd.Size = new System.Drawing.Size(152, 45);
             this.butAdd.TabIndex = 10;
@@ -170,18 +172,28 @@
             // butDelete
             // 
             this.butDelete.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.butDelete.Location = new System.Drawing.Point(198, 318);
+            this.butDelete.Location = new System.Drawing.Point(200, 587);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(152, 45);
             this.butDelete.TabIndex = 11;
             this.butDelete.Text = "Удалить";
             this.butDelete.UseVisualStyleBackColor = true;
             // 
+            // flowLayoutPanelTypes
+            // 
+            this.flowLayoutPanelTypes.AutoScroll = true;
+            this.flowLayoutPanelTypes.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.flowLayoutPanelTypes.Location = new System.Drawing.Point(29, 298);
+            this.flowLayoutPanelTypes.Name = "flowLayoutPanelTypes";
+            this.flowLayoutPanelTypes.Size = new System.Drawing.Size(488, 271);
+            this.flowLayoutPanelTypes.TabIndex = 12;
+            // 
             // TourInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 384);
+            this.ClientSize = new System.Drawing.Size(553, 644);
+            this.Controls.Add(this.flowLayoutPanelTypes);
             this.Controls.Add(this.butDelete);
             this.Controls.Add(this.butAdd);
             this.Controls.Add(this.button1);
@@ -216,5 +228,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button butAdd;
         private System.Windows.Forms.Button butDelete;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTypes;
     }
 }

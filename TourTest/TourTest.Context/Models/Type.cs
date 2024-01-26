@@ -6,7 +6,7 @@ namespace TourTest.Context.Models
 {
     public class Type
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }

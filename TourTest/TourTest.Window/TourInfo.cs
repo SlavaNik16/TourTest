@@ -70,6 +70,8 @@ namespace TourTest.Window
                     var tour = db.Tours.Include(nameof(Tour.Types)).FirstOrDefault(x => x.Id == Tour.Id);
                     if (tour == null) { return; }
                     tour = tourInfoForm.Tour;
+                    tour.Types.Clear();
+                    tour.Types = tourInfoForm.GetTypesChecked();
                     db.SaveChanges();
                     InitTour(tour);
                 }

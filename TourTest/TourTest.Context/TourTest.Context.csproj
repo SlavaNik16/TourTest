@@ -73,6 +73,10 @@
     <Compile Include="Migrations\202401232146022_AddGeneratedNone.designer.cs">
       <DependentUpon>202401232146022_AddGeneratedNone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202401262215185_ChangeDataGenerator.cs" />
+    <Compile Include="Migrations\202401262215185_ChangeDataGenerator.designer.cs">
+      <DependentUpon>202401262215185_ChangeDataGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Enums\RoleType.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401232146022_AddGeneratedNone.resx">
       <DependentUpon>202401232146022_AddGeneratedNone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401262215185_ChangeDataGenerator.resx">
+      <DependentUpon>202401262215185_ChangeDataGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
