@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using TourTest.Context.DB;
 using TourTest.Context.Models;
+using TourTest.Window.Forms;
 
 namespace TourTest.Window
 {
@@ -15,6 +18,13 @@ namespace TourTest.Window
         {
             InitializeComponent();
             this.tour = tour;
+            InitTour(tour);
+
+        }
+
+        public Tour Tour => tour;
+        private void InitTour(Tour tour)
+        {
             labelName.Text = tour.Name;
             labelPrice.Text = $"{tour.Price:C2}";
             labelIsActual.Text = tour.IsActual ? "Актуален" : "Не актуален";
@@ -24,9 +34,8 @@ namespace TourTest.Window
             {
                 pictureBox1.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
             }
-
         }
-        public Tour Tour => tour;
+
         public event EventHandler<(Tour, byte[])> ImageChanged
         {
             add
@@ -52,7 +61,36 @@ namespace TourTest.Window
 
         private void butEdit_Click(object sender, EventArgs e)
         {
+            var tourInfoForm = new TourInfoForm(Tour);
+            var result = tourInfoForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                using (var db = new TourContext())
+                {
+                    var tour = db.Tours.Include(nameof(Tour.Types)).FirstOrDefault(x => x.Id == Tour.Id);
+                    if (tour == null) { return; }
+                    tour = tourInfoForm.Tour;
+                    db.SaveChanges();
+                    InitTour(tour);
+                }
+            }
+            else if(result == DialogResult.Yes)
+            {
+                if (MessageBox.Show($"Вы уверены, что хотите удалить Тур:\n\tНазвание: {Tour.Name}\n\t" +
+                    $"Цена: {Tour.Price}", "Предупреждение!",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                {
+                    using (var db = new TourContext())
+                    {
+                        var tour = db.Tours.Include(nameof(Tour.Types)).FirstOrDefault(x => x.Id == Tour.Id);
+                        if (tour == null) { return; }
+                        db.Tours.Remove(tour);
+                        db.SaveChanges();
+                        this.Hide();
+                    }
+                }
 
+            }
         }
     }
 }

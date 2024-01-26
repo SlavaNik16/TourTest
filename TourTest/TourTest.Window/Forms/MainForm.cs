@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;
+using TourTest.Window.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace TourTest.Window
@@ -120,6 +121,22 @@ namespace TourTest.Window
                     }
                 }
             }
+        }
+
+        private void butAdd_Click(object sender, EventArgs e)
+        {
+            var tourInfoForm = new TourInfoForm();
+            this.Hide();
+            if (tourInfoForm.ShowDialog() == DialogResult.OK)
+            {
+                using (var db = new TourContext())
+                {
+                    db.Tours.Add(tourInfoForm.Tour);
+                    db.SaveChanges();
+                }
+            }
+            var mainForm = new MainForm();
+            mainForm.ShowDialog();
         }
     }
 

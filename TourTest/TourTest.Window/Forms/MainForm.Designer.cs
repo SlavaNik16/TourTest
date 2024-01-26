@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.checkBoxIsActual = new System.Windows.Forms.CheckBox();
+            this.butAdd = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.butAdd);
             this.panel1.Controls.Add(this.checkBoxIsActual);
             this.panel1.Controls.Add(this.comboBoxType);
             this.panel1.Controls.Add(this.label2);
@@ -121,6 +123,17 @@
             this.checkBoxIsActual.UseVisualStyleBackColor = true;
             this.checkBoxIsActual.CheckedChanged += new System.EventHandler(this.checkBoxIsActual_CheckedChanged);
             // 
+            // butAdd
+            // 
+            this.butAdd.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.butAdd.Location = new System.Drawing.Point(1119, 117);
+            this.butAdd.Name = "butAdd";
+            this.butAdd.Size = new System.Drawing.Size(238, 52);
+            this.butAdd.TabIndex = 6;
+            this.butAdd.Text = "Добавить";
+            this.butAdd.UseVisualStyleBackColor = true;
+            this.butAdd.Click += new System.EventHandler(this.butAdd_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -147,6 +160,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxIsActual;
         private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.Button butAdd;
     }
 }
 

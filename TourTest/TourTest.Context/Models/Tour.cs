@@ -15,7 +15,7 @@ namespace TourTest.Context.Models
 
         public decimal Price { get; set; }
 
-        public bool IsActual { get; set; }
+        public bool IsActual { get; set; } = true;
 
         public string Description { get; set; }
 
