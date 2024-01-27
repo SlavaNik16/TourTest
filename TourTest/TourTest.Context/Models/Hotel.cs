@@ -9,11 +9,11 @@ namespace TourTest.Context.Models
         public int Rank { get; set; }
 
         public string CountryCode { get; set; }
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
         public string Description { get; set; }
 
-        public ICollection<Tour> Tours { get; set; }
+        public virtual ICollection<Tour> Tours { get; set; }
 
         public Hotel()
         {

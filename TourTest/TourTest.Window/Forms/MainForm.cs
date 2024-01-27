@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Data.Entity;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;
 using TourTest.Window.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using Type = TourTest.Context.Models.Type;
 
 namespace TourTest.Window
 {
@@ -17,6 +16,8 @@ namespace TourTest.Window
         public MainForm()
         {
             InitializeComponent();
+            comboBoxType.DisplayMember = nameof(Context.Models.Type.Name);
+            comboBoxType.ValueMember = nameof(Context.Models.Type.Id);
         }
 
         private void TourInfo_ImageChanged(object sender, (Context.Models.Tour, byte[]) e)
@@ -29,15 +30,20 @@ namespace TourTest.Window
             }
         }
 
-
-        private const string TypeAll = "Все типы";
         private void MainForm_Load(object sender, EventArgs e)
         {
             using (var db = new TourContext())
             {
+                var query = db.Types.OrderBy(x => x.Name);
+
                 comboBoxType.Items.Clear();
-                comboBoxType.Items.Add(TypeAll);
-                db.Types.Select(x=>x.Name).ToList().ForEach(x=>comboBoxType.Items.Add(x));
+                comboBoxType.Items.AddRange(query.ToArray());
+                comboBoxType.Items.Insert(0, new Context.Models.Type()
+                {
+                    Id = -1,
+                    Name = "Все типы",
+                });
+
                 comboBoxType.SelectedIndex = 0;
 
                 var tours = db.Tours.Include(nameof(Tour.Types)).ToList();
@@ -48,18 +54,6 @@ namespace TourTest.Window
                     tourInfo.Parent = flowLayoutPanel;
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
                 }
-
-                //string path = Directory.GetCurrentDirectory();
-                //foreach (string fileName in Directory.GetFiles(Path.Combine(path, "materials")))
-                //{
-                //    var picture = new PictureBox();
-                //    var fileByte = File.ReadAllBytes(fileName);
-                //    picture.Image = System.Drawing.Image.FromStream(new MemoryStream(fileByte));
-                //    picture.Size = new Size(200,150);
-                //    picture.SizeMode = PictureBoxSizeMode.StretchImage;
-                //    picture.Parent = flowLayoutPanel;
-                //}
-
             }
         }
 
@@ -70,32 +64,31 @@ namespace TourTest.Window
 
         private void Filter()
         {
-            using (var db = new TourContext())
+            if (comboBoxType.SelectedItem == null) return;
+            var selectedTypeId = ((Type)comboBoxType.SelectedItem).Id;
+            foreach (var item in flowLayoutPanel.Controls)
             {
-                foreach (var item in flowLayoutPanel.Controls)
+                var visible = true;
+                if (item is TourInfo tourInfo)
                 {
-                    if (item is TourInfo tourInfo)
+                    if (selectedTypeId != -1 &&
+                        !tourInfo.Tour.Types.Any(x => x.Id == selectedTypeId))
                     {
-                        if (comboBoxType.SelectedItem.ToString() == TypeAll)
-                        {
-                            tourInfo.Visible =true;
-                            if(checkBoxIsActual.Checked)
-                            {
-                                tourInfo.Visible = tourInfo.Tour.IsActual;
-                            }
-                            continue;
-                        }
-                        var truth = tourInfo.Tour.Types.Any(x => x.Name == comboBoxType.SelectedItem.ToString());
-
-                        if (checkBoxIsActual.Checked && truth)
-                        {
-                            tourInfo.Visible = tourInfo.Tour.IsActual;
-                            continue;
-                        }
-                        tourInfo.Visible = truth;
+                        visible = false;
                     }
-                }
 
+                    if (checkBoxIsActual.Checked && !tourInfo.Tour.IsActual)
+                    {
+                        visible = false;
+                    }
+
+                    if (!(string.IsNullOrEmpty(textBoxSearch.Text) ||
+                        tourInfo.Tour.Name.Contains(textBoxSearch.Text)))
+                    {
+                        visible = false;
+                    }
+                    tourInfo.Visible = visible;
+                }
             }
         }
 
@@ -106,40 +99,21 @@ namespace TourTest.Window
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            using (var db = new TourContext())
-            {
-                foreach (var item in flowLayoutPanel.Controls)
-                {
-                    if (item is TourInfo tourInfo)
-                    {
-                        if (textBoxSearch.Text.Trim() == string.Empty)
-                        {
-                            tourInfo.BackColor = Color.White;
-                            continue;
-                        }
-                        tourInfo.BackColor = tourInfo.Tour.Name.Contains(textBoxSearch.Text.Trim()) ? Color.Gray : Color.White;
-                    }
-                }
-            }
+            Filter();
         }
 
         private void butAdd_Click(object sender, EventArgs e)
         {
             var tourInfoForm = new TourInfoForm();
-            this.Hide();
             if (tourInfoForm.ShowDialog() == DialogResult.OK)
             {
                 using (var db = new TourContext())
                 {
-                    //Тут надо доработать
-                    tourInfoForm.Tour.Types.Clear();
-                    tourInfoForm.Tour.Types = tourInfoForm.GetTypesChecked();
+                    tourInfoForm.Tour.Types = db.Types.Where(x => tourInfoForm.GetTypeIdsChecked().Contains(x.Id)).ToList();
                     db.Tours.Add(tourInfoForm.Tour);
                     db.SaveChanges();
                 }
             }
-            var mainForm = new MainForm();
-            mainForm.ShowDialog();
         }
     }
 

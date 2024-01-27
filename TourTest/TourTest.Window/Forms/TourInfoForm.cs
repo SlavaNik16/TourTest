@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Entity.Validation;
-using System.Drawing;
-using System.Globalization;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;
@@ -18,29 +13,21 @@ namespace TourTest.Window.Forms
     public partial class TourInfoForm : Form
     {
         private readonly Tour tour;
-        private List<Country> countries;
         public TourInfoForm()
         {
             InitializeComponent();
             Text = "Добавление тура";
             butAdd.Text = "Добавить";
             butDelete.Visible= false;
-            countries = new List<Country>();
+            checkedListBox.DisplayMember = nameof(Type.Name);
+            comboBoxCountry.DisplayMember = nameof(Country.Name);
             tour = new Tour();
+            
             using (var db =new TourContext())
             {
-                countries = db.Countries.AsNoTracking().ToList();
-                comboBoxCountry.Items.Clear();
-                comboBoxCountry.DataSource = countries.Select(x=>x.Name).ToList();
+                comboBoxCountry.Items.AddRange(db.Countries.ToArray());
                 comboBoxCountry.SelectedIndex = 0;
-
-                foreach(var type in db.Types.AsNoTracking().ToList())
-                {
-                    var check = new CheckBox();
-                    check.Text = type.Name;
-                    check.Width = 300;
-                    check.Parent = flowLayoutPanelTypes;
-                }
+                checkedListBox.Items.AddRange(db.Types.ToArray());
             }
         }
 
@@ -54,36 +41,26 @@ namespace TourTest.Window.Forms
             textBoxPrice.Text = tour.Price.ToString();
             checkBoxIsActual.Checked = tour.IsActual;
             numericUpDownTicket.Value = tour.TicketCount;
-            using (var db = new TourContext())
-            {
-                comboBoxCountry.SelectedItem = db.Countries.AsNoTracking().FirstOrDefault(x => x.Code == tour.CountryCode).Name;
-                foreach (var item in flowLayoutPanelTypes.Controls)
-                {
-                    if (item is CheckBox checkBox)
-                    {
-                        checkBox.Checked = tour.Types.Any(x => x.Name == checkBox.Text);
-                    }
-                }
-            }
+            //using (var db = new TourContext())
+            //{
+            //    comboBoxCountry.SelectedItem = db.Countries.AsNoTracking().FirstOrDefault(x => x.Code == tour.CountryCode).Name;
+            //    foreach (var item in flowLayoutPanelTypes.Controls)
+            //    {
+            //        if (item is CheckBox checkBox)
+            //        {
+            //            checkBox.Checked = tour.Types.Any(x => x.Name == checkBox.Text);
+            //        }
+            //    }
+            //}
         }
 
         public Tour Tour => tour;
 
-        public List<Type> GetTypesChecked()
-        {
-            var types = new List<Type>();
-            using (var db = new TourContext())
-            {
-                foreach (var item in flowLayoutPanelTypes.Controls)
-                {
-                    if (item is CheckBox checkBox && checkBox.Checked)
-                    {
-                        types.Add(db.Types.AsNoTracking().FirstOrDefault(x => x.Name == checkBox.Text));
-                    }
-                }
-                return types;
-            }
-        }
+        public List<int> GetTypeIdsChecked()
+        => checkedListBox.CheckedItems
+            .Cast<Type>()
+            .Select(x => x.Id)
+            .ToList();
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
             tour.Name = textBoxName.Text;
@@ -126,7 +103,7 @@ namespace TourTest.Window.Forms
 
         private void comboBoxCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tour.CountryCode = countries[comboBoxCountry.SelectedIndex].Code;
+            tour.CountryCode = (comboBoxCountry.SelectedItem as Country).Code;
         }
     }
 }

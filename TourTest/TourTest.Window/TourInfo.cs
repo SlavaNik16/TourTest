@@ -71,7 +71,7 @@ namespace TourTest.Window
                     if (tour == null) { return; }
                     tour = tourInfoForm.Tour;
                     tour.Types.Clear();
-                    tour.Types = tourInfoForm.GetTypesChecked();
+                    //tour.Types = tourInfoForm.GetTypesChecked();
                     db.SaveChanges();
                     InitTour(tour);
                 }

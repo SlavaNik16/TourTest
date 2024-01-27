@@ -9,7 +9,7 @@ namespace TourTest.Context.Models
         public string Name { get; set; }
 
         public string CountryCode { get; set; }
-        public Country Country { get; set; }
+        public virtual Country Country { get; set; }
 
         public int TicketCount { get; set; }
 
@@ -21,9 +21,9 @@ namespace TourTest.Context.Models
 
         public byte[] ImagePreview { get; set; }
 
-        public ICollection<Hotel> Hotels { get; set; }
+        public virtual ICollection<Hotel> Hotels { get; set; }
 
-        public ICollection<Type> Types { get; set; }
+        public virtual ICollection<Type> Types { get; set; }
 
         public Tour()
         {
