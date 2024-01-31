@@ -41,17 +41,21 @@ namespace TourTest.Window.Forms
             textBoxPrice.Text = tour.Price.ToString();
             checkBoxIsActual.Checked = tour.IsActual;
             numericUpDownTicket.Value = tour.TicketCount;
-            //using (var db = new TourContext())
-            //{
-            //    comboBoxCountry.SelectedItem = db.Countries.AsNoTracking().FirstOrDefault(x => x.Code == tour.CountryCode).Name;
-            //    foreach (var item in flowLayoutPanelTypes.Controls)
-            //    {
-            //        if (item is CheckBox checkBox)
-            //        {
-            //            checkBox.Checked = tour.Types.Any(x => x.Name == checkBox.Text);
-            //        }
-            //    }
-            //}
+            using (var db = new TourContext())
+            {
+                comboBoxCountry.SelectedItem = db.Countries.FirstOrDefault(x => x.Code == tour.CountryCode);
+
+                for( int i = 0; i < checkedListBox.Items.Count; i++) 
+                {
+                    if (checkedListBox.Items[i] is Type type)
+                    {
+                        if (tour.Types.Any(x => x.Name == type.Name))
+                        {
+                            checkedListBox.SetItemChecked(i, true);
+                        }
+                    }
+                }
+            }
         }
 
         public Tour Tour => tour;

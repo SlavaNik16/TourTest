@@ -18,10 +18,6 @@ namespace TourTest.Window
             InitializeComponent();
             comboBoxType.DisplayMember = nameof(Context.Models.Type.Name);
             comboBoxType.ValueMember = nameof(Context.Models.Type.Id);
-            using (var db = new TourContext())
-            {
-                comboBoxType.DataSource =  db.Users.ToList();
-            }
         }
 
         private void TourInfo_ImageChanged(object sender, (Context.Models.Tour, byte[]) e)
@@ -42,7 +38,7 @@ namespace TourTest.Window
 
                 comboBoxType.Items.Clear();
                 comboBoxType.Items.AddRange(query.ToArray());
-                comboBoxType.Items.Insert(0, new Context.Models.Type()
+                comboBoxType.Items.Insert(0, new Type()
                 {
                     Id = -1,
                     Name = "Все типы",
@@ -50,7 +46,7 @@ namespace TourTest.Window
 
                 comboBoxType.SelectedIndex = 0;
 
-                var tours = db.Tours.Include(nameof(Tour.Types)).ToList();
+                var tours = db.Tours.ToList();
                 foreach (var tour in tours)
                 {
 
