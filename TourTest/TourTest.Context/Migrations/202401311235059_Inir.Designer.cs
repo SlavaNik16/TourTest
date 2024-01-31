@@ -7,13 +7,13 @@ namespace TourTest.Context.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class Inir : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Inir));
         
         string IMigrationMetadata.Id
         {
-            get { return "202401200956361_InitialCreate"; }
+            get { return "202401311235059_Inir"; }
         }
         
         string IMigrationMetadata.Source

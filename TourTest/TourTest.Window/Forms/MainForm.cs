@@ -18,6 +18,10 @@ namespace TourTest.Window
             InitializeComponent();
             comboBoxType.DisplayMember = nameof(Context.Models.Type.Name);
             comboBoxType.ValueMember = nameof(Context.Models.Type.Id);
+            using (var db = new TourContext())
+            {
+                comboBoxType.DataSource =  db.Users.ToList();
+            }
         }
 
         private void TourInfo_ImageChanged(object sender, (Context.Models.Tour, byte[]) e)

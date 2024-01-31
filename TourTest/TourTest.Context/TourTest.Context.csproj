@@ -53,29 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DB\TourContext.cs" />
-    <Compile Include="Migrations\202401200956361_InitialCreate.cs" />
-    <Compile Include="Migrations\202401200956361_InitialCreate.designer.cs">
-      <DependentUpon>202401200956361_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401201039439_ImagePreview.cs" />
-    <Compile Include="Migrations\202401201039439_ImagePreview.designer.cs">
-      <DependentUpon>202401201039439_ImagePreview.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401231739314_FullDB.cs" />
-    <Compile Include="Migrations\202401231739314_FullDB.designer.cs">
-      <DependentUpon>202401231739314_FullDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401231755178_AddCountryTour.cs" />
-    <Compile Include="Migrations\202401231755178_AddCountryTour.designer.cs">
-      <DependentUpon>202401231755178_AddCountryTour.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401232146022_AddGeneratedNone.cs" />
-    <Compile Include="Migrations\202401232146022_AddGeneratedNone.designer.cs">
-      <DependentUpon>202401232146022_AddGeneratedNone.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401262215185_ChangeDataGenerator.cs" />
-    <Compile Include="Migrations\202401262215185_ChangeDataGenerator.designer.cs">
-      <DependentUpon>202401262215185_ChangeDataGenerator.cs</DependentUpon>
+    <Compile Include="Migrations\202401311235059_Inir.cs" />
+    <Compile Include="Migrations\202401311235059_Inir.designer.cs">
+      <DependentUpon>202401311235059_Inir.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Country.cs" />
@@ -96,23 +76,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202401200956361_InitialCreate.resx">
-      <DependentUpon>202401200956361_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401201039439_ImagePreview.resx">
-      <DependentUpon>202401201039439_ImagePreview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401231739314_FullDB.resx">
-      <DependentUpon>202401231739314_FullDB.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401231755178_AddCountryTour.resx">
-      <DependentUpon>202401231755178_AddCountryTour.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401232146022_AddGeneratedNone.resx">
-      <DependentUpon>202401232146022_AddGeneratedNone.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401262215185_ChangeDataGenerator.resx">
-      <DependentUpon>202401262215185_ChangeDataGenerator.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202401311235059_Inir.resx">
+      <DependentUpon>202401311235059_Inir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -1,9 +1,11 @@
-﻿using TourTest.Context.Models.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using TourTest.Context.Models.Enums;
 
 namespace TourTest.Context.Models
 {
     public class User
     {
+        [Key]
         public int Id { get; set; }
 
         public string Surname { get; set; }
