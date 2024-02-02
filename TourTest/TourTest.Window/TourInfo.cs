@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;
 using TourTest.Window.Forms;
+using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace TourTest.Window
 {
@@ -61,20 +63,20 @@ namespace TourTest.Window
 
         private void butEdit_Click(object sender, EventArgs e)
         {
-            var tourInfoForm = new TourInfoForm(Tour);
+            var tourInfoForm = new TourInfoForm(tour);
             var result = tourInfoForm.ShowDialog();
             if (result == DialogResult.OK)
             {
                 using (var db = new TourContext())
                 {
-                    var tour = db.Tours.Include(nameof(Tour.Types)).FirstOrDefault(x => x.Id == Tour.Id);
-
-
-                    tour = tourInfoForm.Tour;
-                    tour.Types.Clear();
-                   // tour.Types = tourInfoForm.GetTypesChecked();
-                    db.SaveChanges();
-                    InitTour(tour);
+                    var tourInfo = db.Tours.FirstOrDefault(x => x.Id ==  tour.Id);
+                    tourInfoForm.Tour.Types.Clear(); 
+                    var ids = tourInfoForm.GetTypeIdsChecked();
+                    tourInfoForm.Tour.Types = db.Types.Where(x => ids.Contains(x.Id)).ToList();
+                    tourInfo = tourInfoForm.Tour;
+                    var intit = db.SaveChanges();
+                    Console.WriteLine(intit);
+                    InitTour(tourInfo);
                 }
             }
             else if(result == DialogResult.Yes)
@@ -85,8 +87,7 @@ namespace TourTest.Window
                 {
                     using (var db = new TourContext())
                     {
-                        var tour = db.Tours.Include(nameof(Tour.Types)).FirstOrDefault(x => x.Id == Tour.Id);
-                        if (tour == null) { return; }
+                        var tour = db.Tours.FirstOrDefault(x => x.Id == Tour.Id);
                         db.Tours.Remove(tour);
                         db.SaveChanges();
                         this.Hide();

@@ -59,7 +59,7 @@
             // 
             this.textBoxName.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxName.Location = new System.Drawing.Point(111, 16);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(235, 29);
             this.textBoxName.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             this.textBoxPrice.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxPrice.Location = new System.Drawing.Point(111, 54);
-            this.textBoxPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPrice.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(116, 29);
             this.textBoxPrice.TabIndex = 3;
@@ -94,7 +94,7 @@
             this.checkBoxIsActual.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxIsActual.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.checkBoxIsActual.Location = new System.Drawing.Point(243, 55);
-            this.checkBoxIsActual.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxIsActual.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxIsActual.Name = "checkBoxIsActual";
             this.checkBoxIsActual.Size = new System.Drawing.Size(103, 25);
             this.checkBoxIsActual.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             this.numericUpDownTicket.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.numericUpDownTicket.Location = new System.Drawing.Point(161, 105);
-            this.numericUpDownTicket.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownTicket.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownTicket.Maximum = new decimal(new int[] {
             300,
             0,
@@ -140,7 +140,7 @@
             this.comboBoxCountry.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.comboBoxCountry.FormattingEnabled = true;
             this.comboBoxCountry.Location = new System.Drawing.Point(161, 152);
-            this.comboBoxCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxCountry.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxCountry.Name = "comboBoxCountry";
             this.comboBoxCountry.Size = new System.Drawing.Size(185, 29);
             this.comboBoxCountry.TabIndex = 7;
@@ -161,7 +161,7 @@
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(250, 382);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(101, 29);
             this.button1.TabIndex = 9;
@@ -173,7 +173,7 @@
             this.butAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.butAdd.Enabled = false;
             this.butAdd.Location = new System.Drawing.Point(17, 382);
-            this.butAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butAdd.Margin = new System.Windows.Forms.Padding(2);
             this.butAdd.Name = "butAdd";
             this.butAdd.Size = new System.Drawing.Size(101, 29);
             this.butAdd.TabIndex = 10;
@@ -184,7 +184,7 @@
             // 
             this.butDelete.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.butDelete.Location = new System.Drawing.Point(133, 382);
-            this.butDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butDelete.Margin = new System.Windows.Forms.Padding(2);
             this.butDelete.Name = "butDelete";
             this.butDelete.Size = new System.Drawing.Size(101, 29);
             this.butDelete.TabIndex = 11;
@@ -193,6 +193,7 @@
             // 
             // checkedListBox
             // 
+            this.checkedListBox.CheckOnClick = true;
             this.checkedListBox.FormattingEnabled = true;
             this.checkedListBox.Location = new System.Drawing.Point(19, 203);
             this.checkedListBox.Name = "checkedListBox";
@@ -217,7 +218,7 @@
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TourInfoForm";
             this.Text = "Добавление тура";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTicket)).EndInit();

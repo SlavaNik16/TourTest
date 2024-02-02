@@ -46,7 +46,7 @@ namespace TourTest.Window
 
                 comboBoxType.SelectedIndex = 0;
 
-                var tours = db.Tours.ToList();
+                var tours = db.Tours.Include(x=>x.Types).ToList();
                 foreach (var tour in tours)
                 {
 
@@ -109,9 +109,13 @@ namespace TourTest.Window
             {
                 using (var db = new TourContext())
                 {
-                    tourInfoForm.Tour.Types = db.Types.Where(x => tourInfoForm.GetTypeIdsChecked().Contains(x.Id)).ToList();
+                    var ids = tourInfoForm.GetTypeIdsChecked();
+                    tourInfoForm.Tour.Types = db.Types.Where(x => ids.Contains(x.Id)).ToList();
                     db.Tours.Add(tourInfoForm.Tour);
                     db.SaveChanges();
+                    var tourInfo = new TourInfo(tourInfoForm.Tour);
+                    tourInfo.Parent = flowLayoutPanel;
+                    tourInfo.ImageChanged += TourInfo_ImageChanged;
                 }
             }
         }

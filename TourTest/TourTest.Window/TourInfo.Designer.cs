@@ -55,9 +55,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelName.Location = new System.Drawing.Point(3, 0);
+            this.labelName.Location = new System.Drawing.Point(2, 0);
+            this.labelName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(556, 39);
+            this.labelName.Size = new System.Drawing.Size(371, 25);
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,9 +68,10 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::TourTest.Window.Properties.Resources.picture;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 42);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 27);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(556, 230);
+            this.pictureBox1.Size = new System.Drawing.Size(371, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -81,9 +83,10 @@
             this.labelIsActual.AutoSize = true;
             this.labelIsActual.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelIsActual.ForeColor = System.Drawing.Color.Green;
-            this.labelIsActual.Location = new System.Drawing.Point(3, 0);
+            this.labelIsActual.Location = new System.Drawing.Point(2, 0);
+            this.labelIsActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelIsActual.Name = "labelIsActual";
-            this.labelIsActual.Size = new System.Drawing.Size(126, 131);
+            this.labelIsActual.Size = new System.Drawing.Size(84, 85);
             this.labelIsActual.TabIndex = 3;
             this.labelIsActual.Text = "Актуален";
             this.labelIsActual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -95,9 +98,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(363, 0);
+            this.label1.Location = new System.Drawing.Point(242, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 131);
+            this.label1.Size = new System.Drawing.Size(84, 85);
             this.label1.TabIndex = 4;
             this.label1.Text = "Билетов: ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -109,9 +113,10 @@
             this.labelTicketCount.AutoSize = true;
             this.labelTicketCount.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelTicketCount.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelTicketCount.Location = new System.Drawing.Point(495, 0);
+            this.labelTicketCount.Location = new System.Drawing.Point(330, 0);
+            this.labelTicketCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTicketCount.Name = "labelTicketCount";
-            this.labelTicketCount.Size = new System.Drawing.Size(57, 131);
+            this.labelTicketCount.Size = new System.Drawing.Size(37, 85);
             this.labelTicketCount.TabIndex = 5;
             this.labelTicketCount.Text = "100";
             this.labelTicketCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,17 +130,19 @@
             this.panelBack.Controls.Add(this.tableLayoutPanel2);
             this.panelBack.Controls.Add(this.tableLayoutPanel1);
             this.panelBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBack.Location = new System.Drawing.Point(50, 50);
+            this.panelBack.Location = new System.Drawing.Point(33, 32);
+            this.panelBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelBack.Name = "panelBack";
-            this.panelBack.Size = new System.Drawing.Size(562, 593);
+            this.panelBack.Size = new System.Drawing.Size(375, 386);
             this.panelBack.TabIndex = 6;
             // 
             // butEditPhoto
             // 
             this.butEditPhoto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.butEditPhoto.Location = new System.Drawing.Point(382, 520);
+            this.butEditPhoto.Location = new System.Drawing.Point(255, 338);
+            this.butEditPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butEditPhoto.Name = "butEditPhoto";
-            this.butEditPhoto.Size = new System.Drawing.Size(170, 56);
+            this.butEditPhoto.Size = new System.Drawing.Size(113, 36);
             this.butEditPhoto.TabIndex = 10;
             this.butEditPhoto.Text = "Обзор";
             this.butEditPhoto.UseVisualStyleBackColor = true;
@@ -144,9 +151,10 @@
             // butEdit
             // 
             this.butEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.butEdit.Location = new System.Drawing.Point(13, 520);
+            this.butEdit.Location = new System.Drawing.Point(9, 338);
+            this.butEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.butEdit.Name = "butEdit";
-            this.butEdit.Size = new System.Drawing.Size(170, 56);
+            this.butEdit.Size = new System.Drawing.Size(113, 36);
             this.butEdit.TabIndex = 9;
             this.butEdit.Text = "Изменить";
             this.butEdit.UseVisualStyleBackColor = true;
@@ -156,17 +164,18 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.Controls.Add(this.labelIsActual, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.labelTicketCount, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 374);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 243);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(562, 131);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(375, 85);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
             // tableLayoutPanel2
@@ -175,11 +184,12 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.labelPrice, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 275);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 179);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(562, 99);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(375, 64);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // labelPrice
@@ -189,9 +199,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelPrice.AutoSize = true;
             this.labelPrice.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPrice.Location = new System.Drawing.Point(3, 0);
+            this.labelPrice.Location = new System.Drawing.Point(2, 0);
+            this.labelPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPrice.Name = "labelPrice";
-            this.labelPrice.Size = new System.Drawing.Size(556, 99);
+            this.labelPrice.Size = new System.Drawing.Size(371, 64);
             this.labelPrice.TabIndex = 2;
             this.labelPrice.Text = "Цена";
             this.labelPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,11 +215,12 @@
             this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.18182F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.81818F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(562, 275);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 179);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // openFileDialog1
@@ -218,14 +230,15 @@
             // 
             // TourInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.panelBack);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "TourInfo";
-            this.Padding = new System.Windows.Forms.Padding(50);
-            this.Size = new System.Drawing.Size(662, 693);
+            this.Padding = new System.Windows.Forms.Padding(33, 32, 33, 32);
+            this.Size = new System.Drawing.Size(441, 450);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelBack.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);

@@ -21,7 +21,7 @@ namespace TourTest.Window.Forms
             butDelete.Visible= false;
             checkedListBox.DisplayMember = nameof(Type.Name);
             comboBoxCountry.DisplayMember = nameof(Country.Name);
-            tour = new Tour();
+            this.tour = new Tour();
             
             using (var db =new TourContext())
             {
@@ -43,17 +43,16 @@ namespace TourTest.Window.Forms
             numericUpDownTicket.Value = tour.TicketCount;
             using (var db = new TourContext())
             {
-                comboBoxCountry.SelectedItem = db.Countries.FirstOrDefault(x => x.Code == tour.CountryCode);
+                comboBoxCountry.SelectedItem = comboBoxCountry.Items.Cast<Country>().FirstOrDefault(x => x.Code == tour.CountryCode); 
 
                 for( int i = 0; i < checkedListBox.Items.Count; i++) 
                 {
-                    if (checkedListBox.Items[i] is Type type)
+                    var ids = checkedListBox.Items.Cast<Type>().Select(x=>x.Id).ToList();
+                    if (tour.Types.Select(x => x.Id).Contains(ids[i]))
                     {
-                        if (tour.Types.Any(x => x.Name == type.Name))
-                        {
-                            checkedListBox.SetItemChecked(i, true);
-                        }
+                        checkedListBox.SetItemChecked(i, true);
                     }
+                    
                 }
             }
         }
