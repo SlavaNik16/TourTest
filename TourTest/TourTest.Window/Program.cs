@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using TourTest.Window.Forms;
 
 namespace TourTest.Window
 {
@@ -13,7 +14,7 @@ namespace TourTest.Window
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new StartForm());
         }
     }
 }

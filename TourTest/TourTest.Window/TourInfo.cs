@@ -8,6 +8,7 @@ using TourTest.Context.Models;
 using TourTest.Window.Forms;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
+using System.Collections.Generic;
 
 namespace TourTest.Window
 {
@@ -15,7 +16,7 @@ namespace TourTest.Window
     {
         private readonly Tour tour;
         private EventHandler<(Tour, byte[])> onImageChanged;
-       
+        private EventHandler onCountOrdersChanged;
         public TourInfo(Tour tour)
         {
             InitializeComponent();
@@ -50,6 +51,18 @@ namespace TourTest.Window
             }
         }
 
+        public event EventHandler CountOrdersChanged
+        {
+            add
+            {
+                onCountOrdersChanged += value;
+            }
+            remove
+            {
+                onCountOrdersChanged -= value;
+            }
+        }
+
         private void butEditPhoto_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() != DialogResult.OK)
@@ -67,12 +80,12 @@ namespace TourTest.Window
             var result = tourInfoForm.ShowDialog();
             if (result == DialogResult.OK)
             {
+                var ids = tourInfoForm.GetTypeIdsChecked();
                 using (var db = new TourContext())
                 {
-                    var tourInfo = db.Tours.FirstOrDefault(x => x.Id ==  tour.Id);
-                    tourInfoForm.Tour.Types.Clear(); 
-                    var ids = tourInfoForm.GetTypeIdsChecked();
-                    tourInfoForm.Tour.Types = db.Types.Where(x => ids.Contains(x.Id)).ToList();
+                    var types = db.Types.Where(x => ids.Contains(x.Id)).ToList();
+                    var tourInfo = db.Tours.Include(y=>y.Types).FirstOrDefault(x => x.Id ==  tour.Id);
+                    tourInfoForm.Tour.Types = types;
                     tourInfo = tourInfoForm.Tour;
                     var intit = db.SaveChanges();
                     Console.WriteLine(intit);
@@ -87,14 +100,21 @@ namespace TourTest.Window
                 {
                     using (var db = new TourContext())
                     {
-                        var tour = db.Tours.FirstOrDefault(x => x.Id == Tour.Id);
-                        db.Tours.Remove(tour);
+                        var tourInfo = db.Tours.FirstOrDefault(x => x.Id == Tour.Id);
+                        db.Tours.Remove(tourInfo);
                         db.SaveChanges();
                         this.Hide();
                     }
                 }
 
             }
+        }
+
+        private void addToOrder_Click(object sender, EventArgs e)
+        {
+            TourForm.orders.Add(Tour.Id);
+            onCountOrdersChanged?.Invoke(this,EventArgs.Empty);
+            Console.WriteLine(TourForm.orders.Count);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
@@ -10,14 +11,16 @@ using Type = TourTest.Context.Models.Type;
 
 namespace TourTest.Window
 {
-    public partial class MainForm : Form
+    public partial class TourForm : Form
     {
-
-        public MainForm()
+        public static List<int> orders;
+        public TourForm()
         {
             InitializeComponent();
+            orders = new List<int>();
             comboBoxType.DisplayMember = nameof(Context.Models.Type.Name);
             comboBoxType.ValueMember = nameof(Context.Models.Type.Id);
+
         }
 
         private void TourInfo_ImageChanged(object sender, (Context.Models.Tour, byte[]) e)
@@ -53,8 +56,14 @@ namespace TourTest.Window
                     var tourInfo = new TourInfo(tour);
                     tourInfo.Parent = flowLayoutPanel;
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
+                    tourInfo.CountOrdersChanged += TourInfo_CountOrdersChanged;
                 }
             }
+        }
+
+        private void TourInfo_CountOrdersChanged(object sender, EventArgs e)
+        {
+            labelCountOrders.Text = orders.Count.ToString();
         }
 
         private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
@@ -118,6 +127,11 @@ namespace TourTest.Window
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
                 }
             }
+        }
+
+        private void TourForm_MouseHover(object sender, EventArgs e)
+        {
+            
         }
     }
 

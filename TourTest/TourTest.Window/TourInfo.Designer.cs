@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.labelName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelIsActual = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTicketCount = new System.Windows.Forms.Label();
@@ -41,11 +41,15 @@
             this.labelPrice = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addToOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBack.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelName
@@ -62,19 +66,6 @@
             this.labelName.TabIndex = 0;
             this.labelName.Text = "Название";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::TourTest.Window.Properties.Resources.picture;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 27);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(371, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // labelIsActual
             // 
@@ -131,7 +122,7 @@
             this.panelBack.Controls.Add(this.tableLayoutPanel1);
             this.panelBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBack.Location = new System.Drawing.Point(33, 32);
-            this.panelBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBack.Margin = new System.Windows.Forms.Padding(2);
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(375, 386);
             this.panelBack.TabIndex = 6;
@@ -140,7 +131,7 @@
             // 
             this.butEditPhoto.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.butEditPhoto.Location = new System.Drawing.Point(255, 338);
-            this.butEditPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butEditPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.butEditPhoto.Name = "butEditPhoto";
             this.butEditPhoto.Size = new System.Drawing.Size(113, 36);
             this.butEditPhoto.TabIndex = 10;
@@ -152,7 +143,7 @@
             // 
             this.butEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.butEdit.Location = new System.Drawing.Point(9, 338);
-            this.butEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.butEdit.Margin = new System.Windows.Forms.Padding(2);
             this.butEdit.Name = "butEdit";
             this.butEdit.Size = new System.Drawing.Size(113, 36);
             this.butEdit.TabIndex = 9;
@@ -171,7 +162,7 @@
             this.tableLayoutPanel3.Controls.Add(this.labelTicketCount, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 243);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -185,7 +176,7 @@
             this.tableLayoutPanel2.Controls.Add(this.labelPrice, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 179);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -215,7 +206,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.18182F));
@@ -228,18 +219,46 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Image(*.jpg)|*.jpg";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::TourTest.Window.Properties.Resources.picture;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 27);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(371, 150);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addToOrder});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.ShowImageMargin = false;
+            this.contextMenuStrip.Size = new System.Drawing.Size(142, 26);
+            // 
+            // addToOrder
+            // 
+            this.addToOrder.Name = "addToOrder";
+            this.addToOrder.Size = new System.Drawing.Size(155, 22);
+            this.addToOrder.Text = "Добавить в заказ";
+            this.addToOrder.Click += new System.EventHandler(this.addToOrder_Click);
+            // 
             // TourInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ContextMenuStrip = this.contextMenuStrip;
             this.Controls.Add(this.panelBack);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TourInfo";
             this.Padding = new System.Windows.Forms.Padding(33, 32, 33, 32);
             this.Size = new System.Drawing.Size(441, 450);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelBack.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -247,6 +266,8 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -265,5 +286,7 @@
         private System.Windows.Forms.Button butEditPhoto;
         private System.Windows.Forms.Button butEdit;
         public System.Windows.Forms.Panel panelBack;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem addToOrder;
     }
 }
