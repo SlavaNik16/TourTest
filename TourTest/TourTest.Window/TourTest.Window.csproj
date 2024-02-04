@@ -64,11 +64,23 @@
     <Compile Include="Forms\AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\HotelChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HotelChangeForm.Designer.cs">
+      <DependentUpon>HotelChangeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\HotelForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\HotelForm.Designer.cs">
       <DependentUpon>HotelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TourForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +100,12 @@
     <Compile Include="Forms\TourInfoForm.Designer.cs">
       <DependentUpon>TourInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OrderView.Designer.cs">
+      <DependentUpon>OrderView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -104,8 +122,14 @@
     <EmbeddedResource Include="Forms\AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\HotelChangeForm.resx">
+      <DependentUpon>HotelChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\HotelForm.resx">
       <DependentUpon>HotelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TourForm.resx">
       <DependentUpon>TourForm.cs</DependentUpon>
@@ -115,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TourInfoForm.resx">
       <DependentUpon>TourInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderView.resx">
+      <DependentUpon>OrderView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -146,7 +173,9 @@
       <Name>TourTest.Context</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Туры Фото\picture.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

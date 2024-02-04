@@ -18,7 +18,7 @@ namespace TourTest.Context.Models.WorkUser
                         Surname = "Неавторизованный гость",
                         Name = string.Empty,
                         Patronymic = string.Empty,
-                        Role = Enums.RoleType.Guest
+                        Role = RoleType.Guest
                     };
                 }
                 return user;

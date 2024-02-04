@@ -17,6 +17,7 @@ namespace TourTest.Window
         private readonly Tour tour;
         private EventHandler<(Tour, byte[])> onImageChanged;
         private EventHandler onCountOrdersChanged;
+        public event Action<Tour> onAddToOrder;
         public TourInfo(Tour tour)
         {
             InitializeComponent();
@@ -112,9 +113,11 @@ namespace TourTest.Window
 
         private void addToOrder_Click(object sender, EventArgs e)
         {
-            TourForm.orders.Add(Tour.Id);
-            onCountOrdersChanged?.Invoke(this,EventArgs.Empty);
-            Console.WriteLine(TourForm.orders.Count);
+            if (tour.IsActual)
+            {
+                onAddToOrder?.Invoke(tour);
+                onCountOrdersChanged?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 }

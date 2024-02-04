@@ -57,10 +57,16 @@
     <Compile Include="Migrations\202401311235059_Inir.designer.cs">
       <DependentUpon>202401311235059_Inir.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202402042242475_AddOrder.cs" />
+    <Compile Include="Migrations\202402042242475_AddOrder.designer.cs">
+      <DependentUpon>202402042242475_AddOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Enums\RoleType.cs" />
     <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\ReceivingPoint.cs" />
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Models\Type.cs" />
     <Compile Include="Models\User.cs" />
@@ -82,15 +88,13 @@
     <EmbeddedResource Include="Migrations\202401311235059_Inir.resx">
       <DependentUpon>202401311235059_Inir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402042242475_AddOrder.resx">
+      <DependentUpon>202402042242475_AddOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\picture.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -59,11 +59,25 @@ namespace TourTest.Window
                     tourInfo.Parent = flowLayoutPanel;
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
                     tourInfo.CountOrdersChanged += TourInfo_CountOrdersChanged;
+                    tourInfo.onAddToOrder += TourInfo_onAddToOrder;
 
                     allToursSum += (int)(tour.Price * tour.TicketCount);
                 }
                 labelAllTourSum.Text = $"{allToursSum:C2}";
             }
+        }
+
+        private void TourInfo_onAddToOrder(Tour tour)
+        {
+           if(orders.TryGetValue(tour, out var count))
+            {
+                orders[tour] = count;
+            }
+            else
+            {
+                orders.Add(tour, 1);
+            }
+           
         }
 
         private void TourInfo_CountOrdersChanged(object sender, EventArgs e)
@@ -139,6 +153,7 @@ namespace TourTest.Window
                     tourInfo.Parent = flowLayoutPanel;
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
                     tourInfo.CountOrdersChanged += TourInfo_CountOrdersChanged;
+                    tourInfo.onAddToOrder += TourInfo_onAddToOrder;
 
                     allToursSum += (int)(tourInfoForm.Tour.Price * tourInfoForm.Tour.TicketCount);
                     labelAllTourSum.Text = $"{allToursSum:C2}";
