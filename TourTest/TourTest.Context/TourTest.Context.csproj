@@ -64,6 +64,7 @@
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Models\Type.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WorkUser\WorkToUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -91,9 +92,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

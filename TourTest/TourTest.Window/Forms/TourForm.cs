@@ -13,11 +13,12 @@ namespace TourTest.Window
 {
     public partial class TourForm : Form
     {
-        public static List<int> orders;
+        private int allToursSum = 0;
+        public static Dictionary<Tour,int> orders;
         public TourForm()
         {
             InitializeComponent();
-            orders = new List<int>();
+            orders = new Dictionary<Tour,int>();
             comboBoxType.DisplayMember = nameof(Context.Models.Type.Name);
             comboBoxType.ValueMember = nameof(Context.Models.Type.Id);
 
@@ -50,6 +51,7 @@ namespace TourTest.Window
                 comboBoxType.SelectedIndex = 0;
 
                 var tours = db.Tours.Include(x=>x.Types).ToList();
+                allToursSum = 0;
                 foreach (var tour in tours)
                 {
 
@@ -57,13 +59,17 @@ namespace TourTest.Window
                     tourInfo.Parent = flowLayoutPanel;
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
                     tourInfo.CountOrdersChanged += TourInfo_CountOrdersChanged;
+
+                    allToursSum += (int)(tour.Price * tour.TicketCount);
                 }
+                labelAllTourSum.Text = $"{allToursSum:C2}";
             }
         }
 
         private void TourInfo_CountOrdersChanged(object sender, EventArgs e)
         {
             labelCountOrders.Text = orders.Count.ToString();
+            butOrder.Visible = orders.Count != 0;
         }
 
         private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
@@ -75,6 +81,7 @@ namespace TourTest.Window
         {
             if (comboBoxType.SelectedItem == null) return;
             var selectedTypeId = ((Type)comboBoxType.SelectedItem).Id;
+            allToursSum = 0;
             foreach (var item in flowLayoutPanel.Controls)
             {
                 var visible = true;
@@ -96,9 +103,14 @@ namespace TourTest.Window
                     {
                         visible = false;
                     }
+                    if (visible)
+                    {
+                        allToursSum += (int)(tourInfo.Tour.Price * tourInfo.Tour.TicketCount);
+                    }
                     tourInfo.Visible = visible;
                 }
             }
+            labelAllTourSum.Text = $"{allToursSum:C2}";
         }
 
         private void checkBoxIsActual_CheckedChanged(object sender, EventArgs e)
@@ -122,17 +134,18 @@ namespace TourTest.Window
                     tourInfoForm.Tour.Types = db.Types.Where(x => ids.Contains(x.Id)).ToList();
                     db.Tours.Add(tourInfoForm.Tour);
                     db.SaveChanges();
+
                     var tourInfo = new TourInfo(tourInfoForm.Tour);
                     tourInfo.Parent = flowLayoutPanel;
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
+                    tourInfo.CountOrdersChanged += TourInfo_CountOrdersChanged;
+
+                    allToursSum += (int)(tourInfoForm.Tour.Price * tourInfoForm.Tour.TicketCount);
+                    labelAllTourSum.Text = $"{allToursSum:C2}";
                 }
             }
         }
 
-        private void TourForm_MouseHover(object sender, EventArgs e)
-        {
-            
-        }
     }
 
 }
