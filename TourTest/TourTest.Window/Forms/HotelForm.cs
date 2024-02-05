@@ -39,7 +39,9 @@ namespace TourTest.Window.Forms
         {
             using (var db = new TourContext())
             {
+               
                 var count = db.Hotels.Count();
+               
                 var pageLength = (int)Math.Ceiling((float)count / sizePage);
 
                 if(oldCurrent != pageLength)
@@ -58,7 +60,7 @@ namespace TourTest.Window.Forms
                     }
                     bindingNavigator.BindingSource = bindingSource;
                 }
-
+                toolStripAllCount.Text = $"Кол-во записей: {count}";
                 dataGridView1.DataSource = db.Hotels.Include(y => y.Country)
                     .OrderBy(x=>x.Name)
                     .Skip(bindingSource.Position * sizePage)

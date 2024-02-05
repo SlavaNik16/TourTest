@@ -45,10 +45,9 @@
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 16F);
-            this.button2.Location = new System.Drawing.Point(623, 393);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button2.Location = new System.Drawing.Point(415, 255);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(213, 62);
+            this.button2.Size = new System.Drawing.Size(142, 40);
             this.button2.TabIndex = 18;
             this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
@@ -58,10 +57,9 @@
             this.buttonSave.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonSave.Enabled = false;
             this.buttonSave.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonSave.Location = new System.Drawing.Point(41, 393);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonSave.Location = new System.Drawing.Point(27, 255);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(213, 62);
+            this.buttonSave.Size = new System.Drawing.Size(142, 40);
             this.buttonSave.TabIndex = 17;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -71,10 +69,9 @@
             this.comboBoxCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCountry.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxCountry.FormattingEnabled = true;
-            this.comboBoxCountry.Location = new System.Drawing.Point(291, 279);
-            this.comboBoxCountry.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxCountry.Location = new System.Drawing.Point(194, 181);
             this.comboBoxCountry.Name = "comboBoxCountry";
-            this.comboBoxCountry.Size = new System.Drawing.Size(542, 44);
+            this.comboBoxCountry.Size = new System.Drawing.Size(363, 31);
             this.comboBoxCountry.TabIndex = 16;
             this.comboBoxCountry.SelectedIndexChanged += new System.EventHandler(this.comboBoxCountry_SelectedIndexChanged);
             // 
@@ -82,25 +79,23 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(155, 281);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(103, 183);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 36);
+            this.label4.Size = new System.Drawing.Size(80, 25);
             this.label4.TabIndex = 15;
             this.label4.Text = "Страна";
             // 
             // numericUpDownRank
             // 
             this.numericUpDownRank.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDownRank.Location = new System.Drawing.Point(291, 199);
-            this.numericUpDownRank.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericUpDownRank.Location = new System.Drawing.Point(194, 129);
             this.numericUpDownRank.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
             this.numericUpDownRank.Name = "numericUpDownRank";
-            this.numericUpDownRank.Size = new System.Drawing.Size(544, 44);
+            this.numericUpDownRank.Size = new System.Drawing.Size(363, 32);
             this.numericUpDownRank.TabIndex = 14;
             this.numericUpDownRank.ValueChanged += new System.EventHandler(this.numericUpDownRank_ValueChanged);
             // 
@@ -108,22 +103,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(86, 199);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(57, 129);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 36);
+            this.label3.Size = new System.Drawing.Size(131, 25);
             this.label3.TabIndex = 13;
             this.label3.Text = "Кол-во звезд";
             // 
             // textBoxDescription
             // 
             this.textBoxDescription.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxDescription.Location = new System.Drawing.Point(291, 121);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxDescription.Location = new System.Drawing.Point(194, 79);
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxDescription.Size = new System.Drawing.Size(542, 44);
+            this.textBoxDescription.Size = new System.Drawing.Size(363, 32);
             this.textBoxDescription.TabIndex = 12;
             this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
@@ -131,20 +124,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(122, 122);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(81, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 36);
+            this.label2.Size = new System.Drawing.Size(106, 25);
             this.label2.TabIndex = 11;
             this.label2.Text = "Описание";
             // 
             // textBoxTitle
             // 
             this.textBoxTitle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxTitle.Location = new System.Drawing.Point(291, 48);
-            this.textBoxTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxTitle.Location = new System.Drawing.Point(194, 31);
             this.textBoxTitle.Name = "textBoxTitle";
-            this.textBoxTitle.Size = new System.Drawing.Size(542, 37);
+            this.textBoxTitle.Size = new System.Drawing.Size(363, 27);
             this.textBoxTitle.TabIndex = 10;
             this.textBoxTitle.TextChanged += new System.EventHandler(this.textBoxTitle_TextChanged);
             // 
@@ -152,18 +143,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(35, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(23, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 36);
+            this.label1.Size = new System.Drawing.Size(158, 25);
             this.label1.TabIndex = 19;
             this.label1.Text = "Название отеля";
             // 
             // HotelChangeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 491);
+            this.ClientSize = new System.Drawing.Size(590, 319);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonSave);
@@ -174,6 +164,11 @@
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxTitle);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(606, 358);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(606, 358);
             this.Name = "HotelChangeForm";
             this.Text = "HotelChangeForm";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRank)).EndInit();

@@ -78,7 +78,7 @@ namespace TourTest.Window
         {
             if (orders.TryGetValue(tour, out var count))
             {
-                orders[tour] = count;
+                orders[tour] = ++count;
             }
             else
             {
