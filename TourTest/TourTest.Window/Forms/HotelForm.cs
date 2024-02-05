@@ -28,7 +28,6 @@ namespace TourTest.Window.Forms
             bindingSource = new BindingSource();
             bindingSource.CurrentItemChanged += BindingSource_CurrentItemChanged;
             dataGridView1.AutoGenerateColumns = false;
-           
             Print();
             butAdd.Enabled =
             butEdit.Enabled =
@@ -131,6 +130,15 @@ namespace TourTest.Window.Forms
                     db.SaveChanges();
                     Print();
                 }
+            }
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].DataPropertyName == "Country")
+            {
+                var country = (Country)e.Value;
+                e.Value = country.Name;
             }
         }
     }

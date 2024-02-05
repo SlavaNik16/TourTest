@@ -21,6 +21,7 @@ namespace TourTest.Window.Forms
             hotel = new Hotel();
             using (var db = new TourContext())
             {
+                comboBoxCountry.DisplayMember = "Name";
                 comboBoxCountry.Items.AddRange(db.Countries.ToArray());
                 comboBoxCountry.SelectedIndex = 0;
             }
