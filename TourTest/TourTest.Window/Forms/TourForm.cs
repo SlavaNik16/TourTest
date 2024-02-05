@@ -5,6 +5,8 @@ using System.Linq;
 using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;
+using TourTest.Context.Models.Enums;
+using TourTest.Context.Models.WorkUser;
 using TourTest.Window.Forms;
 using Type = TourTest.Context.Models.Type;
 
@@ -20,6 +22,8 @@ namespace TourTest.Window
             orders = new Dictionary<Tour,int>();
             comboBoxType.DisplayMember = nameof(Type.Name);
             comboBoxType.ValueMember = nameof(Type.Id);
+            butAdd.Enabled = !WorkToUser.CompareTo(RoleType.Guest)
+              && !WorkToUser.CompareTo(RoleType.Client);
 
         }
 
