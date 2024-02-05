@@ -29,6 +29,7 @@ namespace TourTest.Window
             labelPrice.Text = $"Цена {Tour.Price:C2}";
             labelTicketCount.Text = $"Кол-во билетов: {Tour.TicketCount}";
             numericUpDownCount.Value = count;
+            listBox1.DisplayMember = "Name";
             listBox1.Items.AddRange(Tour.Types.ToArray());
             if(Tour.ImagePreview != null)
             {

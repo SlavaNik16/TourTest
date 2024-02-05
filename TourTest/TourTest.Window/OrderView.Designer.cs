@@ -46,7 +46,7 @@
             this.pictureBox1.Image = global::TourTest.Window.Properties.Resources.picture;
             this.pictureBox1.Location = new System.Drawing.Point(20, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(393, 226);
+            this.pictureBox1.Size = new System.Drawing.Size(287, 226);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -54,10 +54,10 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelName.Location = new System.Drawing.Point(431, 14);
+            this.labelName.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelName.Location = new System.Drawing.Point(322, 14);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(152, 36);
+            this.labelName.Size = new System.Drawing.Size(134, 32);
             this.labelName.TabIndex = 1;
             this.labelName.Text = "Название";
             // 
@@ -66,7 +66,7 @@
             this.labelIsActual.AutoSize = true;
             this.labelIsActual.Font = new System.Drawing.Font("Times New Roman", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelIsActual.ForeColor = System.Drawing.Color.Green;
-            this.labelIsActual.Location = new System.Drawing.Point(1236, 14);
+            this.labelIsActual.Location = new System.Drawing.Point(1178, 15);
             this.labelIsActual.Name = "labelIsActual";
             this.labelIsActual.Size = new System.Drawing.Size(152, 36);
             this.labelIsActual.TabIndex = 2;
@@ -75,9 +75,9 @@
             // labelDescription
             // 
             this.labelDescription.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDescription.Location = new System.Drawing.Point(442, 60);
+            this.labelDescription.Location = new System.Drawing.Point(322, 60);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(353, 180);
+            this.labelDescription.Size = new System.Drawing.Size(250, 180);
             this.labelDescription.TabIndex = 3;
             this.labelDescription.Text = "Описание";
             // 
@@ -86,16 +86,16 @@
             this.listBox1.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 33;
-            this.listBox1.Location = new System.Drawing.Point(801, 14);
+            this.listBox1.Location = new System.Drawing.Point(633, 11);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(429, 235);
+            this.listBox1.Size = new System.Drawing.Size(539, 235);
             this.listBox1.TabIndex = 4;
             // 
             // labelCountry
             // 
             this.labelCountry.AutoSize = true;
             this.labelCountry.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCountry.Location = new System.Drawing.Point(1236, 71);
+            this.labelCountry.Location = new System.Drawing.Point(1178, 72);
             this.labelCountry.Name = "labelCountry";
             this.labelCountry.Size = new System.Drawing.Size(99, 33);
             this.labelCountry.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             this.labelTicketCount.AutoSize = true;
             this.labelTicketCount.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelTicketCount.Location = new System.Drawing.Point(1236, 129);
+            this.labelTicketCount.Location = new System.Drawing.Point(1178, 130);
             this.labelTicketCount.Name = "labelTicketCount";
             this.labelTicketCount.Size = new System.Drawing.Size(198, 33);
             this.labelTicketCount.TabIndex = 6;
@@ -115,7 +115,7 @@
             // 
             this.labelPrice.AutoSize = true;
             this.labelPrice.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPrice.Location = new System.Drawing.Point(1236, 194);
+            this.labelPrice.Location = new System.Drawing.Point(1178, 195);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(73, 33);
             this.labelPrice.TabIndex = 7;
@@ -124,14 +124,14 @@
             // numericUpDownCount
             // 
             this.numericUpDownCount.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.numericUpDownCount.Location = new System.Drawing.Point(1423, 14);
+            this.numericUpDownCount.Location = new System.Drawing.Point(1365, 15);
             this.numericUpDownCount.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
             this.numericUpDownCount.Name = "numericUpDownCount";
-            this.numericUpDownCount.Size = new System.Drawing.Size(203, 40);
+            this.numericUpDownCount.Size = new System.Drawing.Size(107, 40);
             this.numericUpDownCount.TabIndex = 8;
             this.numericUpDownCount.ValueChanged += new System.EventHandler(this.numericUpDownCount_ValueChanged);
             // 
@@ -149,7 +149,7 @@
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.pictureBox1);
             this.Name = "OrderView";
-            this.Size = new System.Drawing.Size(1646, 259);
+            this.Size = new System.Drawing.Size(1486, 259);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCount)).EndInit();
             this.ResumeLayout(false);

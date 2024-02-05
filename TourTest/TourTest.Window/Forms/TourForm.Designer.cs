@@ -133,6 +133,7 @@
             this.butOrder.Text = "Заказы";
             this.butOrder.UseVisualStyleBackColor = true;
             this.butOrder.Visible = false;
+            this.butOrder.Click += new System.EventHandler(this.butOrder_Click);
             // 
             // butAdd
             // 

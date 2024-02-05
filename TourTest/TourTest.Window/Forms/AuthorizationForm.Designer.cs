@@ -127,6 +127,8 @@
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxLogin);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AuthorizationForm";
             this.Text = "AuthorizationForm";
             this.ResumeLayout(false);

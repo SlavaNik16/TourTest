@@ -35,6 +35,7 @@ namespace TourTest.Window.Forms
 
             using (var db = new TourContext())
             {
+                comboBoxAddress.DisplayMember = "Title";
                 comboBoxAddress.Items.AddRange(db.ReceivingPoints.ToArray());
                 comboBoxAddress.SelectedIndex = 0;
             }

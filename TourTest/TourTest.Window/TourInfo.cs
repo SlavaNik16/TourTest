@@ -9,6 +9,8 @@ using TourTest.Window.Forms;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Collections.Generic;
+using TourTest.Context.Models.WorkUser;
+using TourTest.Context.Models.Enums;
 
 namespace TourTest.Window
 {
@@ -18,6 +20,7 @@ namespace TourTest.Window
         private EventHandler<(Tour, byte[])> onImageChanged;
         private EventHandler onCountOrdersChanged;
         public event Action<Tour> onAddToOrder;
+        public event Action<int> onAddTour;
         public TourInfo(Tour tour)
         {
             InitializeComponent();
@@ -38,6 +41,8 @@ namespace TourTest.Window
             {
                 pictureBox1.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
             }
+            butEdit.Enabled = butEditPhoto.Enabled = !WorkToUser.CompareTo(RoleType.Guest)
+               && !WorkToUser.CompareTo(RoleType.Client);
         }
 
         public event EventHandler<(Tour, byte[])> ImageChanged
@@ -77,37 +82,34 @@ namespace TourTest.Window
 
         private void butEdit_Click(object sender, EventArgs e)
         {
-            var tourInfoForm = new TourInfoForm(tour);
-            var result = tourInfoForm.ShowDialog();
-            if (result == DialogResult.OK)
+            using (var db = new TourContext())
             {
-                var ids = tourInfoForm.GetTypeIdsChecked();
-                using (var db = new TourContext())
+                var tourDB = db.Tours.FirstOrDefault(x => x.Id == tour.Id);
+                var tourInfoForm = new TourInfoForm(tourDB);
+                var result = tourInfoForm.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    var types = db.Types.Where(x => ids.Contains(x.Id)).ToList();
-                    var tourInfo = db.Tours.Include(y=>y.Types).FirstOrDefault(x => x.Id ==  tour.Id);
-                    tourInfoForm.Tour.Types = types;
-                    tourInfo = tourInfoForm.Tour;
-                    var intit = db.SaveChanges();
-                    Console.WriteLine(intit);
-                    InitTour(tourInfo);
+                    var ids = tourInfoForm.GetTypeIdsChecked();
+                    tourDB.Types.Clear();
+                    tourDB.Types = db.Types.Where(x => ids.Contains(x.Id)).ToList();
+                    db.SaveChanges();
+                    InitTour(tourDB);
+                    onAddTour?.Invoke((int)tourDB.Price * tourDB.TicketCount);
                 }
-            }
-            else if(result == DialogResult.Yes)
-            {
-                if (MessageBox.Show($"Вы уверены, что хотите удалить Тур:\n\tНазвание: {Tour.Name}\n\t" +
-                    $"Цена: {Tour.Price}", "Предупреждение!",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                else if (result == DialogResult.Yes)
                 {
-                    using (var db = new TourContext())
+                    if (MessageBox.Show($"Вы уверены, что хотите удалить Тур:\n\tНазвание: {tourDB.Name}\n\t" +
+                        $"Цена: {tourDB.Price}", "Предупреждение!",
+                        MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                     {
-                        var tourInfo = db.Tours.FirstOrDefault(x => x.Id == Tour.Id);
-                        db.Tours.Remove(tourInfo);
+                       
+                        db.Tours.Remove(tourDB);
                         db.SaveChanges();
                         this.Hide();
+                        onAddTour?.Invoke(-((int)tourDB.Price * tourDB.TicketCount));
                     }
-                }
 
+                }
             }
         }
 

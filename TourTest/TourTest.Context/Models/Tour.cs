@@ -13,7 +13,7 @@ namespace TourTest.Context.Models
         public string CountryCode { get; set; }
         public virtual Country Country { get; set; }
 
-        public int TicketCount { get; set; }
+        public int TicketCount { get; set; } = 1;
 
         public decimal Price { get; set; }
 
@@ -32,6 +32,8 @@ namespace TourTest.Context.Models
             Hotels = new HashSet<Hotel>();
             Types = new HashSet<Type>();
         }
+
+        
 
     }
 }

@@ -12,5 +12,6 @@ namespace TourTest.Context.Models
         public virtual ICollection<Hotel> Hotel { get; set; }
 
         public virtual ICollection<Tour> Tour { get; set; }
+
     }
 }

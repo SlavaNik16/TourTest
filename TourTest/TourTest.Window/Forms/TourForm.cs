@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;
@@ -19,17 +20,17 @@ namespace TourTest.Window
         {
             InitializeComponent();
             orders = new Dictionary<Tour,int>();
-            comboBoxType.DisplayMember = nameof(Context.Models.Type.Name);
-            comboBoxType.ValueMember = nameof(Context.Models.Type.Id);
+            comboBoxType.DisplayMember = nameof(Type.Name);
+            comboBoxType.ValueMember = nameof(Type.Id);
 
         }
 
-        private void TourInfo_ImageChanged(object sender, (Context.Models.Tour, byte[]) e)
+        private void TourInfo_ImageChanged(object sender, (Tour, byte[]) e)
         {
             using (var db = new TourContext())
             {    
-                db.Entry(e.Item1).State = EntityState.Modified;
                 e.Item1.ImagePreview = e.Item2;
+                db.Entry(e.Item1).State = EntityState.Modified;
                 db.SaveChanges();
             }
         }
@@ -50,7 +51,7 @@ namespace TourTest.Window
 
                 comboBoxType.SelectedIndex = 0;
 
-                var tours = db.Tours.Include(x=>x.Types).ToList();
+                var tours = db.Tours.AsNoTracking().Include(x=>x.Types).ToList();
                 allToursSum = 0;
                 foreach (var tour in tours)
                 {
@@ -60,6 +61,7 @@ namespace TourTest.Window
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
                     tourInfo.CountOrdersChanged += TourInfo_CountOrdersChanged;
                     tourInfo.onAddToOrder += TourInfo_onAddToOrder;
+                    tourInfo.onAddTour += TourInfo_onAddTour;
 
                     allToursSum += (int)(tour.Price * tour.TicketCount);
                 }
@@ -67,9 +69,16 @@ namespace TourTest.Window
             }
         }
 
+        private void TourInfo_onAddTour(int money)
+        {
+            allToursSum += money;
+            labelAllTourSum.Text = $"{allToursSum:C2}";
+
+        }
+
         private void TourInfo_onAddToOrder(Tour tour)
         {
-           if(orders.TryGetValue(tour, out var count))
+            if (orders.TryGetValue(tour, out var count))
             {
                 orders[tour] = count;
             }
@@ -154,13 +163,20 @@ namespace TourTest.Window
                     tourInfo.ImageChanged += TourInfo_ImageChanged;
                     tourInfo.CountOrdersChanged += TourInfo_CountOrdersChanged;
                     tourInfo.onAddToOrder += TourInfo_onAddToOrder;
+                    tourInfo.onAddTour += TourInfo_onAddTour;
 
-                    allToursSum += (int)(tourInfoForm.Tour.Price * tourInfoForm.Tour.TicketCount);
+                    allToursSum += (int)(tourInfo.Tour.Price * tourInfo.Tour.TicketCount);
                     labelAllTourSum.Text = $"{allToursSum:C2}";
                 }
             }
         }
 
+        private void butOrder_Click(object sender, EventArgs e)
+        {
+
+            var orderForm = new OrderForm(orders);
+            orderForm.ShowDialog();
+        }
     }
 
 }
