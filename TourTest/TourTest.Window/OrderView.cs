@@ -25,7 +25,7 @@ namespace TourTest.Window
             labelName.Text = Tour.Name;
             labelDescription.Text = string.IsNullOrWhiteSpace(Tour.Description) ? 
                 "Описание отсутствует" : Tour.Description;
-            labelCountry.Text = Tour.Country.Name.ToString();
+            labelCountry.Text = Tour.CountryCode.ToString();
             labelPrice.Text = $"Цена {Tour.Price:C2}";
             labelTicketCount.Text = $"Кол-во билетов: {Tour.TicketCount}";
             numericUpDownCount.Value = count;
