@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Management.Instrumentation;
 using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;

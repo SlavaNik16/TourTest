@@ -1,8 +1,7 @@
 ﻿namespace TourTest.Context.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Inir : DbMigration
     {
         public override void Up()

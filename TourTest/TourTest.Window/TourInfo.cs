@@ -6,9 +6,6 @@ using System.Windows.Forms;
 using TourTest.Context.DB;
 using TourTest.Context.Models;
 using TourTest.Window.Forms;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
-using System.Collections.Generic;
 using TourTest.Context.Models.WorkUser;
 using TourTest.Context.Models.Enums;
 
